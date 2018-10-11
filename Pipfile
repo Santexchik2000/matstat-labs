@@ -1,15 +1,11 @@
 [[source]]
 name = "pypi"
-verify_ssl = true
 url = "https://pypi.org/simple"
-
-[packages]
-numpy = "==1.13.1"
-matplotlib = "==2.0.2"
-scipy = "==1.1.0"
-jupyter = "*"
-
-[dev-packages]
+verify_ssl = true
 
 [requires]
 python_version = "3.5"
+
+[dev-packages]
+
+[packages]
