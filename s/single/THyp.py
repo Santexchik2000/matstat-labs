@@ -1,9 +1,9 @@
 from scipy import stats
 import numpy as np
-from s.Hyp import Hyp
+from s.single.SingleHyp import SingleHyp
 
 
-class THyp(Hyp):
+class THyp(SingleHyp):
     """t-test"""
     m = None
 

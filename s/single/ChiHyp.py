@@ -1,9 +1,9 @@
 from scipy import stats
 import numpy as np
-from s.Hyp import Hyp
+from s.single.SingleHyp import SingleHyp
 
 
-class ChiHyp(Hyp):
+class ChiHyp(SingleHyp):
     """chi-squared-test"""
     def __init__(self, kind, sample, sigma, m=None):
         n = sample.n()

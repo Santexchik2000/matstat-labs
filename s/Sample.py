@@ -5,7 +5,11 @@ class Sample(object):
     _m = None
     _s = None
     _s0 = None
+
     _n = None
+    _min = None
+    _max = None
+
     _data = None
     _name = None
 
@@ -19,12 +23,14 @@ class Sample(object):
         return result
 
     @staticmethod
-    def from_params(name, n, m, s, s0):
+    def from_params(name, n=None, m=None, s=None, s0=None, min=None, max=None):
         result = Sample(name)
         result._m = m
         result._s = s
         result._s0 = s0
         result._n = n
+        result._min = min
+        result._max = max
 
     @staticmethod
     def from_distribution(name, dist, count):
@@ -55,6 +61,16 @@ class Sample(object):
         if self._s0 is None:
             self._s0 = np.std(self.data())
         return self._s0
+
+    def min(self):
+        if self._min is None:
+            self._min = np.min(self.data())
+        return self._min
+
+    def max(self):
+        if self._max is None:
+            self._max = np.max(self.data())
+        return self._max
 
     def __len__(self):
         return self.n()
