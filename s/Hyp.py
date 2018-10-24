@@ -9,7 +9,7 @@ class AltHypKind(Enum):
 
 class Hyp(object):
     """Hypothesis"""
-    dist = None
+    _dist = None
     kind = None
 
     def __init__(self, dist, kind=AltHypKind.TWO_SIDED):
@@ -19,12 +19,12 @@ class Hyp(object):
     def criterion(self, sample):
         pass
 
-    def critical_value(self, alpha, *args):
+    def critical_value(self, alpha):
         level = 1 - alpha / 2 if self.kind == AltHypKind.TWO_SIDED else 1 - alpha
-        return self.dist.ppf(level, *args)
+        return self.dist.ppf(level)
 
-    def p_value(self, criterion_value, *args):
-        left_p = self.dist.cdf(criterion_value, *args)
+    def p_value(self, criterion_value):
+        left_p = self.dist.cdf(criterion_value)
         if self.kind == AltHypKind.LEFT:
             return left_p
         if self.kind == AltHypKind.RIGHT:
@@ -32,9 +32,9 @@ class Hyp(object):
         if self.kind == AltHypKind.TWO_SIDED:
             return 2 * min(left_p, 1 - left_p)
 
-    def test(self, sample, alpha, *args):
+    def test(self, sample, alpha):
         criterion_value = self.criterion(sample)
-        critical_value = self.critical_value(alpha, *args)
+        critical_value = self.critical_value(alpha)
 
         if self.kind == AltHypKind.TWO_SIDED:
             return abs(criterion_value) < critical_value
