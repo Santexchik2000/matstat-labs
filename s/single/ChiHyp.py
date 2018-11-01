@@ -21,20 +21,14 @@ class ChiHyp(SingleHyp):
             s0_square = np.mean((sample - self.m) ** 2)
             return n * s0_square / self.sigma / self.sigma
 
-    def critical_value(self, alpha):
-        if self.m is None:
-            return super(ChiHyp, self).critical_value(alpha)
-        else:
-            return super(ChiHyp, self).critical_value(alpha)
+    # def p_value(self, criterion_value):
+    #     if self.m is None:
+    #         return super(ChiHyp, self).p_value(criterion_value)
+    #     else:
+    #         return super(ChiHyp, self).p_value(criterion_value)
 
-    def p_value(self, criterion_value):
-        if self.m is None:
-            return super(ChiHyp, self).p_value(criterion_value)
-        else:
-            return super(ChiHyp, self).p_value(criterion_value)
-
-    def test(self, sample, alpha):
-        if self.m is None:
-            return super(ChiHyp, self).test(sample, alpha)
-        else:
-            return super(ChiHyp, self).test(sample, alpha)
+    # def test(self, sample, alpha):
+    #     if self.m is None:
+    #         return super(ChiHyp, self).test(sample, alpha)
+    #     else:
+    #         return super(ChiHyp, self).test(sample, alpha)

@@ -1,21 +1,21 @@
-from s import AltHypKind, Hyp
+from ..Hyp import Hyp, AltHypKind
 
 
-class SingleHyp(Hyp):
-    """Single sample hypothesis"""
+class DoubleHyp(Hyp):
+    """Double sample hypothesis"""
 
     def __init__(self, dist, kind=AltHypKind.TWO_SIDED):
-        super(SingleHyp, self).__init__(dist, kind)
+        super(DoubleHyp, self).__init__(dist, kind)
 
-    def criterion(self, sample):
+    def criterion(self, sample1, sample2):
         pass
 
-    def test(self, sample, alpha):
-        _, _, _, result = self.full_test(sample, alpha)
+    def test(self, sample1, sample2, alpha):
+        _, _, _, result = self.full_test(sample1, sample2, alpha)
         return result
 
-    def full_test(self, sample, alpha):
-        criterion_value = self.criterion(sample)
+    def full_test(self, sample1, sample2, alpha):
+        criterion_value = self.criterion(sample1, sample2)
         crit_left, crit_right = self.critical_values(alpha)
 
         p_value = self.p_value(criterion_value)

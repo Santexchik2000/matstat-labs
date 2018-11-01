@@ -15,9 +15,9 @@ class Hyp(object):
         self.dist = dist
         self.kind = kind
 
-    def critical_value(self, alpha):
-        level = 1 - alpha / 2 if self.kind == AltHypKind.TWO_SIDED else 1 - alpha
-        return self.dist.ppf(level)
+    def critical_values(self, alpha):
+        level = alpha / 2 if self.kind == AltHypKind.TWO_SIDED else alpha
+        return self.dist.ppf(level), self.dist.ppf(1 - level)
 
     def p_value(self, criterion_value):
         left_p = self.dist.cdf(criterion_value)
