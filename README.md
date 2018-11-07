@@ -7,7 +7,8 @@ A repo for matstat labs
 **Labs**:
 
 - `1.ipynb`
-- `2.ipynp`
+- `2.ipynb`
+- `3.ipynb`
 
 **Utils**:
 
