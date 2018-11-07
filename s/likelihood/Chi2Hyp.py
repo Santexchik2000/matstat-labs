@@ -35,10 +35,15 @@ class Pierson2SampledHyp(Likely2SampleHyp):
             1. / (hist1 + hist2) * (hist1 / n1 - hist2 / n2) ** 2
         )
 
-    def test(self, sample1, sample2, alpha=0.05):
+    def full_test(self, sample1, sample2, alpha=0.05):
         criterion_value = self.criterion(sample1, sample2)
-        critical_value = self.critical_value(alpha)
-        return criterion_value < critical_value
+        crit_l, crit_r = self.critical_values(alpha)
+        p_value = self.p_value(criterion_value)
+        return criterion_value, (crit_l, crit_r), p_value, criterion_value < crit_r
+
+    def test(self, sample1, sample2, alpha=0.05):
+        _, _, _, result = self.full_test(sample1, sample2, alpha)
+        return result
 
 
 class Pierson1SampledHyp(Likely1SampleHyp):
@@ -67,6 +72,6 @@ class Pierson1SampledHyp(Likely1SampleHyp):
 
     def full_test(self, dist, sample, alpha=0.05):
         criterion_value = self.criterion(dist, sample)
-        critical_value = self.critical_value(alpha)
+        crit_l, crit_r = self.critical_values(alpha)
         p_value = self.p_value(criterion_value)
-        return criterion_value, critical_value, p_value, criterion_value < critical_value
+        return criterion_value, (crit_l, crit_r), p_value, criterion_value < crit_r
