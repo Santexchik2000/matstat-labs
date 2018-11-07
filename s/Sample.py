@@ -62,6 +62,9 @@ class Sample(object):
             self._s0 = np.std(self.data())
         return self._s0
 
+    def var(self):
+        return self.s0() ** 2
+
     def min(self):
         if self._min is None:
             self._min = np.min(self.data())

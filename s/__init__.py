@@ -12,4 +12,9 @@ from s.double.Z2Hyp import Z2Hyp
 from s.double.T2Hyp import T2Hyp
 from s.double.FHyp import FHyp
 
+from s.anova.BartlettHyp import BartlettHyp
+from s.anova.LinearContrastHyp import LinearContrastHyp
+from s.anova.OneWayAnovaHyp import OneWayAnovaHyp
+from s.anova.PooledSample import PooledSample
+
 from s.likelihood import Pierson1SampledHyp, Pierson2SampledHyp, hist_from_cdf

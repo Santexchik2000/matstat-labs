@@ -19,3 +19,10 @@ def table_html(headers, rows):
 
 def table(headers, rows):
     display(HTML(table_html(headers, rows)))
+
+
+def printf(string, *args, **kwargs):
+    wrapped = "<p>{}</p>".format(string)
+    display(HTML(
+        wrapped.format(*args, kwargs)
+    ))
