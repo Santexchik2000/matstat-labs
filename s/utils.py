@@ -24,5 +24,5 @@ def table(headers, rows):
 def printf(string, *args, **kwargs):
     wrapped = "<p>{}</p>".format(string)
     display(HTML(
-        wrapped.format(*args, kwargs)
+        wrapped.format(*args, **kwargs)
     ))
