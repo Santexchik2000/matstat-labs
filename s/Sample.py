@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.stats import rankdata
 
 
 class Sample(object):
@@ -86,3 +87,7 @@ class Sample(object):
             s=s,
             s2=s*s
         ))
+
+    def ranks(self, method='average'):
+        data = self.data()
+        return rankdata(data, method=method)
