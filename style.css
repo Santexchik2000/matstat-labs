@@ -1,0 +1,25 @@
+table.htable td,
+table.htable th {
+    border: 1px solid black;
+}
+
+table.htable th,
+table.htable td.head {
+    text-align: center;
+    font-weight: bold;
+}
+
+table.htable tr {
+    background-color: white !important;
+}
+table.htable tr:hover {
+    background-color: #39f2 !important;
+}
+
+.bold { font-weight: bold !important; }
+.red { color: red !important; }
+.italic { font-decoration: italic !important; }
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }

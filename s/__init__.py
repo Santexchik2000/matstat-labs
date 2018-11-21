@@ -18,3 +18,5 @@ from s.anova.OneWayAnovaHyp import OneWayAnovaHyp
 from s.anova.PooledSample import PooledSample
 
 from s.likelihood import Pierson1SampledHyp, Pierson2SampledHyp, hist_from_cdf
+
+from .HTable import HTable, TableRow, Cell
